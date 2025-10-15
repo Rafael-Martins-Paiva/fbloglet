@@ -110,9 +110,7 @@ export default async function HomePage({
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-0">
         <Suspense fallback={<div>Loading articles...</div>}>
           <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative overflow-hidden border-x border-border ${
-              filteredBlogs.length < 4 ? "border-b" : "border-b-0"
-            }`}
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative overflow-hidden`}
           >
             {filteredBlogs.map((blog) => {
               const date = new Date(blog.data.date);
@@ -126,6 +124,7 @@ export default async function HomePage({
                   description={blog.data.description}
                   date={formattedDate}
                   thumbnail={blog.data.thumbnail}
+
                 />
               );
             })}
