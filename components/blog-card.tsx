@@ -21,7 +21,7 @@ export function BlogCard({
     <Link href={url} className={cn("group block relative")}>
       <div className="flex flex-col">
         {thumbnail && (
-          <div className="p-6">
+          <div className="mx-6">
             <div className="relative w-full h-48 overflow-hidden rounded-lg">
               <Image
                 src={thumbnail}
@@ -33,7 +33,7 @@ export function BlogCard({
             </div>
           </div>
         )}
-        <div className="p-6 flex flex-col gap-2">
+        <div className="mx-6 flex flex-col gap-2 my-6">
           <h3 className="text-xl font-semibold text-card-foreground group-hover:underline underline-offset-4">
             {title}
           </h3>
