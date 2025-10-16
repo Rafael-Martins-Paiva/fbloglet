@@ -12,6 +12,7 @@ import { TableOfContents } from "@/components/table-of-contents";
 import { MobileTableOfContents } from "@/components/mobile-toc";
 import { AuthorCard } from "@/components/author-card";
 import { ReadMoreSection } from "@/components/read-more-section";
+import { CommentSection } from "@/components/comment-section";
 import { PromoContent } from "@/components/promo-content";
 import { getAuthor, isValidAuthor } from "@/lib/authors";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
@@ -122,6 +123,9 @@ export default async function BlogPost({ params }: PageProps) {
                 <MDX />
               </DocsBody>
             </div>
+          </div>
+          <div className="mt-10">
+            <CommentSection />
           </div>
           <div className="mt-10">
             <ReadMoreSection
