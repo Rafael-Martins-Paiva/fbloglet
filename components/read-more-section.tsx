@@ -73,7 +73,7 @@ export function ReadMoreSection({
   }
 
   return (
-    <section className="border-t border-border p-0">
+    <section className="p-0">
       <div className="p-6 lg:p-10">
         <h2 className="text-2xl font-medium mb-8">Read more</h2>
 
