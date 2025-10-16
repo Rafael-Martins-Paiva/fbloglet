@@ -106,7 +106,7 @@ export default async function BlogPost({ params }: PageProps) {
         <div className="absolute max-w-7xl mx-auto left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] lg:w-full h-full p-0 pointer-events-none" />
         <main className="w-full p-0 overflow-hidden">
           {page.data.thumbnail && (
-            <div className="relative w-full h-[500px] overflow-hidden object-cover border border-transparent">
+            <div className="relative w-full h-[600px] overflow-hidden object-cover rounded-lg">
               <Image
                 src={page.data.thumbnail}
                 alt={page.data.title}
