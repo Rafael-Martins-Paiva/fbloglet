@@ -13,6 +13,7 @@ import { MobileTableOfContents } from "@/components/mobile-toc";
 import { AuthorCard } from "@/components/author-card";
 import { ReadMoreSection } from "@/components/read-more-section";
 import { CommentSection } from "@/components/comment-section";
+import { ReportButtonWithDialog } from "@/components/report-button-with-dialog";
 import { PromoContent } from "@/components/promo-content";
 import { getAuthor, isValidAuthor } from "@/lib/authors";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
@@ -123,6 +124,9 @@ export default async function BlogPost({ params }: PageProps) {
                 <MDX />
               </DocsBody>
             </div>
+          </div>
+          <div className="flex justify-end p-6 lg:p-10 pt-0">
+            <ReportButtonWithDialog />
           </div>
           <div className="mt-10">
             <CommentSection />

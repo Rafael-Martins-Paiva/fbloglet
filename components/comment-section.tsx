@@ -79,7 +79,7 @@ export function CommentSection() {
         </div>
 
         {/* Add a placeholder for new comment input */}
-        <div className="pt-4 border-t border-border">
+        <div className="pt-4">
           <textarea
             className="w-full p-3 rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             rows={4}
