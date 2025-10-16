@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Blog - Magic UI";
+export const alt = "Blog - Bloglet";
 export const size = {
   width: 1200,
   height: 630,
