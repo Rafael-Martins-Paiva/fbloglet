@@ -65,7 +65,7 @@ export default async function BlogPost({ params }: PageProps) {
         />
       </div>
 
-      <div className="space-y-4 border-b border-border relative z-10">
+      <div className="space-y-4 relative z-10">
         <div className="max-w-7xl mx-auto flex flex-col gap-6 p-6">
           <div className="flex flex-wrap items-center gap-3 gap-y-5 text-sm text-muted-foreground">
             <Button variant="outline" asChild className="h-6 w-6">
@@ -102,7 +102,7 @@ export default async function BlogPost({ params }: PageProps) {
           )}
         </div>
       </div>
-      <div className="flex divide-x divide-border relative max-w-7xl mx-auto px-4 md:px-0 z-10">
+      <div className="flex relative max-w-7xl mx-auto px-4 md:px-0 z-10">
         <div className="absolute max-w-7xl mx-auto left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] lg:w-full h-full p-0 pointer-events-none" />
         <main className="w-full p-0 overflow-hidden">
           {page.data.thumbnail && (
@@ -136,7 +136,7 @@ export default async function BlogPost({ params }: PageProps) {
             {page.data.author && isValidAuthor(page.data.author) && (
               <AuthorCard author={getAuthor(page.data.author)} />
             )}
-            <div className="border border-border rounded-lg p-6 bg-card">
+            <div className="rounded-lg p-6 bg-card">
               <TableOfContents />
             </div>
             <PromoContent variant="desktop" />
