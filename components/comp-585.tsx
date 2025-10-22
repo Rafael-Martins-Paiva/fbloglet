@@ -24,7 +24,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-const teams = ["Acme Inc.", "coss.com", "Junon"]
+//const teams = ["Acme Inc.", "coss.com", "Junon"]
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
