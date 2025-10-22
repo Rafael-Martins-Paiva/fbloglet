@@ -1,5 +1,7 @@
 import React from 'react';
 import { ChevronUp, ChevronDown } from 'lucide-react';
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
+import Comp74 from "@/components/comp-74"
 
 export function CommentSection() {
   return (
@@ -80,16 +82,8 @@ export function CommentSection() {
 
         {/* Add a placeholder for new comment input */}
         <div className="pt-4">
-          <textarea
-            className="w-full p-3 rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            rows={4}
-            placeholder="Write your comment here..."
-          ></textarea>
-          <button
-            className="mt-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-          >
-            Submit Comment
-          </button>
+          <Comp74 />
+          <InteractiveHoverButton>Submit Comment</InteractiveHoverButton>
         </div>
       </div>
     </div>

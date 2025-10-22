@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/lib/site";
 import { metadataKeywords } from "./metadata";
 import { SiteNav } from "@/components/site-nav";
+import Comp585 from "@/components/comp-585"
 import Footer from "@/components/footer";
 import "@/app/globals.css";
 
@@ -40,7 +41,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SiteNav />
+          <Comp585 />
           {children}
           <Footer />
         </ThemeProvider>
