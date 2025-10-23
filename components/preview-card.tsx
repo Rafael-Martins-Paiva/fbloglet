@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from 'react';
 import { PreviewCard } from '@base-ui-components/react/preview-card';
 
@@ -6,7 +8,13 @@ interface ExamplePreviewCardProps {
 }
 
 export default function ExamplePreviewCard({ children }: ExamplePreviewCardProps) {
-  if (typeof document === 'undefined') return null;
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <PreviewCard.Root>
