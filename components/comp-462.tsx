@@ -1,5 +1,9 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
+import { useId } from "react"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
 import { usePagination } from "@/hooks/use-pagination"
 import {
   Pagination,
@@ -32,17 +36,22 @@ export default function Component({
     totalPages,
     paginationItemsToDisplay,
   })
+  const id = useId()
 
   return (
     <div className="flex items-center justify-between gap-3">
-      {/* Page number information */}
-      <p
-        className="flex-1 text-sm whitespace-nowrap text-muted-foreground"
-        aria-live="polite"
-      >
-        Page <span className="text-foreground">{currentPage}</span> of{" "}
-        <span className="text-foreground">{totalPages}</span>
-      </p>
+      {/* Go to page input */}
+      <div className="flex items-center gap-3">
+        <Label htmlFor={id} className="whitespace-nowrap">
+          Go to page
+        </Label>
+        <Input
+          id={id}
+          type="text"
+          className="w-14"
+          defaultValue={String(currentPage)}
+        />
+      </div>
 
       {/* Pagination */}
       <div className="grow">
