@@ -9,8 +9,13 @@ import {
   PaginationItem,
   PaginationLink,
 } from "@/components/ui/pagination"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 type PaginationProps = {
   currentPage: number
