@@ -39,7 +39,7 @@ export default function Component({
   const id = useId()
 
   return (
-    <div className="flex items-center justify-between gap-3">
+    <div className="flex items-center justify-between gap-3 mb-4">
       {/* Go to page input */}
       <div className="hidden md:flex items-center gap-3">
         <Label htmlFor={id} className="whitespace-nowrap">
