@@ -21,7 +21,7 @@ export function BlogCard({
     <Link href={url} className={cn("group block relative")}>
       <div className="flex flex-col">
         {thumbnail && (
-          <div className="mx-3 md:mx-4">
+          <div className="mx-4">
             <div className="relative w-full h-48 overflow-hidden rounded-lg">
               <Image
                 src={thumbnail}
