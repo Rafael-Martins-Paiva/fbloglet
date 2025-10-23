@@ -5,7 +5,6 @@ import { Suspense } from "react";
 import { BlogCard } from "@/components/blog-card";
 import { TagFilter } from "@/components/tag-filter";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
-import PaginationComponent462 from "@/components/comp-462";
 
 interface BlogData {
   title: string;
@@ -40,7 +39,7 @@ const formatDate = (date: Date): string => {
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams: Promise<{ tag?: string; page?: string }>;
+  searchParams: Promise<{ tag?: string }>;
 }) {
   const resolvedSearchParams = await searchParams;
   const allPages = blogSource.getPages() as BlogPage[];
@@ -62,18 +61,6 @@ export default async function HomePage({
     selectedTag === "All"
       ? sortedBlogs
       : sortedBlogs.filter((blog) => blog.data.tags?.includes(selectedTag));
-
-  // --- Pagination Logic ---
-  const pageSize = 10; // You can adjust this value
-  const totalItems = filteredBlogs.length;
-  const totalPages = Math.ceil(totalItems / pageSize);
-  const currentPage = Number(resolvedSearchParams.page) || 1; // Get page from search params
-
-  // Slice the blogs for the current page
-  const startIndex = (currentPage - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
-  const paginatedBlogs = filteredBlogs.slice(startIndex, endIndex);
-  // --- End Pagination Logic ---
 
   const tagCounts = allTags.reduce((acc, tag) => {
     if (tag === "All") {
@@ -125,7 +112,7 @@ export default async function HomePage({
           <div
             className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative overflow-hidden`}
           >
-            {paginatedBlogs.map((blog) => {
+            {filteredBlogs.map((blog) => {
               const date = new Date(blog.data.date);
               const formattedDate = formatDate(date);
 
@@ -143,7 +130,6 @@ export default async function HomePage({
             })}
           </div>
         </Suspense>
-        <PaginationComponent462 currentPage={currentPage} totalPages={totalPages} />
       </div>
     </div>
   );

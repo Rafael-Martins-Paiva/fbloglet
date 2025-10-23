@@ -1,4 +1,3 @@
-import { useId } from "react"
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 import { usePagination } from "@/hooks/use-pagination"
@@ -33,7 +32,6 @@ export default function Component({
     totalPages,
     paginationItemsToDisplay,
   })
-  const id = useId()
 
   return (
     <div className="flex items-center justify-between gap-3">
@@ -111,17 +109,22 @@ export default function Component({
         </Pagination>
       </div>
 
-      {/* Go to page input */}
-      <div className="flex items-center gap-3">
-        <Label htmlFor={id} className="whitespace-nowrap">
-          Go to page
-        </Label>
-        <Input
-          id={id}
-          type="text"
-          className="w-14"
-          defaultValue={String(currentPage)}
-        />
+      {/* Results per page */}
+      <div className="flex flex-1 justify-end">
+        <Select defaultValue="10" aria-label="Results per page">
+          <SelectTrigger
+            id="results-per-page"
+            className="w-fit whitespace-nowrap"
+          >
+            <SelectValue placeholder="Select number of results" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="10">10 / page</SelectItem>
+            <SelectItem value="20">20 / page</SelectItem>
+            <SelectItem value="50">50 / page</SelectItem>
+            <SelectItem value="100">100 / page</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
     </div>
   )
