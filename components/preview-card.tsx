@@ -15,7 +15,7 @@ export default function ExamplePreviewCard({ children }: ExamplePreviewCardProps
         {children}
       </PreviewCard.Trigger>
 
-      <PreviewCard.Portal>
+      <PreviewCard.Portal container={document.body}>
         <PreviewCard.Positioner sideOffset={8}>
           {/* Mantido o z-[9999] como a solução de maior z-index */}
           <PreviewCard.Popup className="flex w-[240px] origin-[var(--transform-origin)] flex-col gap-2 rounded-lg bg-[canvas] p-2 shadow-lg shadow-gray-200 outline outline-1 outline-gray-200 transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0 dark:shadow-none dark:-outline-offset-1 dark:outline-gray-300 z-[9999]">
