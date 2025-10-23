@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { BlogCard } from "@/components/blog-card";
 import { TagFilter } from "@/components/tag-filter";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
-import PaginationComponent462 from "@/components/comp-462"; // Added import
+import PaginationComponent462 from "@/components/comp-462"; 
 
 interface BlogData {
   title: string;
