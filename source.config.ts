@@ -12,7 +12,7 @@ export default defineConfig({
   },
 });
 
-export const { docs, meta } = defineDocs({
+export const { docs: blogDocs, meta: blogMeta } = defineDocs({
   dir: "blog/content",
   docs: {
     schema: frontmatterSchema.extend({
@@ -22,6 +22,16 @@ export const { docs, meta } = defineDocs({
       readTime: z.string().optional(),
       author: z.string().optional(),
       thumbnail: z.string().optional(),
+    }),
+  },
+});
+
+export const { docs: courseDocs, meta: courseMeta } = defineDocs({
+  dir: "courses/content",
+  docs: {
+    schema: frontmatterSchema.extend({
+      date: z.string(),
+      videoUrl: z.string().optional(),
     }),
   },
 });
