@@ -5,7 +5,7 @@ interface EditableDivProps {
   initialContent?: string;
 }
 
-const EditableDiv: React.FC<EditableDivProps> = ({ initialContent = '' }) => {
+const EditableDiv: React.FC<EditableDivProps> = ({  }) => {
   
 
 
