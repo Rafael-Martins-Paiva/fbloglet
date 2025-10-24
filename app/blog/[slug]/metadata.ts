@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { docs, meta } from "@/.source";
+import { blogDocs, blogMeta } from "@/.source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
 import { siteConfig } from "@/lib/site";

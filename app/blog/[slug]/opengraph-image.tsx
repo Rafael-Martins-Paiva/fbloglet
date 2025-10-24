@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { docs, meta } from "@/.source";
+import { blogDocs, blogMeta } from "@/.source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
 import { getAuthor, isValidAuthor, type AuthorKey } from "@/lib/authors";

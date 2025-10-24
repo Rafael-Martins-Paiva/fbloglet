@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { docs, meta } from "@/.source";
+import { blogDocs, blogMeta } from "@/.source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
-import Link from "next/link";
+import { BlogCard } from "./blog-card";
+
 
 const blogSource = loader({
   baseUrl: "/blog",
