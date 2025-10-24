@@ -1,10 +1,10 @@
 import { useId } from "react"
 import {
   BookOpen,
-  HashIcon,
   HouseIcon,
   MailIcon,
   SearchIcon,
+  Newspaper,
 } from "lucide-react"
 
 import Logo from "@/components/logo"
@@ -28,7 +28,7 @@ import {
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
   { href: "/", label: "Home", icon: HouseIcon },
-  { href: "/composer", label: "composer", icon: HashIcon },
+  { href: "/composer", label: "composer", icon: Newspaper },
   { href: "/courses", label: "Courses", icon: BookOpen },
 ]
 
