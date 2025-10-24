@@ -12,7 +12,7 @@ interface PageProps {
 }
 
 const courseSource = loader({
-  baseUrl: "/courses",
+  baseUrl: "/composer",
   source: createMDXSource(courseDocs, courseMeta),
 });
 
