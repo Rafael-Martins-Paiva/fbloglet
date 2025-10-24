@@ -1,35 +1,25 @@
 import { Metadata } from 'next';
 // Certifique-se de que o caminho de importação está correto para o seu componente Client!
-// Use o nome do arquivo que você corrigiu, que no seu log de erro era 'test.tsx'.
 import EditableDiv from '@/components/test'; 
 
-// Simulação de busca de dados no servidor
-async function fetchInitialContent(slug: string): Promise<string> {
-  // Aqui você faria uma chamada a um banco de dados ou API
-  // para carregar o conteúdo atual do rascunho (draft) com base no 'slug'.
+// Simulação de busca de dados no servidor - Não precisa mais de 'slug'
+async function fetchInitialContent(): Promise<string> {
+  // Você pode buscar um rascunho padrão, ou simplesmente retornar um conteúdo inicial.
   
-  // Exemplo de conteúdo mock:
-  const contentMap: Record<string, string> = {
-    'post-1': '<h2>Inicie a edição do Post 1</h2><p>Este é o conteúdo que foi carregado do servidor.</p>',
-    'new-draft': '<h2>Novo Rascunho</h2><p>Comece a escrever seu novo artigo aqui.</p>',
-    default: 'Clique para editar e comece a escrever!',
-  };
+  // Exemplo de conteúdo mock padrão:
+  const defaultContent = '<h2>Comece a Escrever</h2><p>Este é o novo rascunho padrão.</p>';
 
-  return contentMap[slug] || contentMap.default;
+  // Em um projeto real, você buscaria o rascunho mais recente ou um rascunho 'vazio'.
+  return defaultContent;
 }
 
 // ----------------------------------------------------
-// SERVER COMPONENT: ComposerPage
+// SERVER COMPONENT: ComposerPage (Sem Parâmetros de Rota)
 // ----------------------------------------------------
-export default async function ComposerPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const { slug } = params;
-  
+export default async function ComposerPage() {
   // 1. Carrega o conteúdo inicial (no Servidor)
-  const initialContent = await fetchInitialContent(slug);
+  // Não precisamos mais de 'params' nem de 'slug'
+  const initialContent = await fetchInitialContent();
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
@@ -39,13 +29,13 @@ export default async function ComposerPage({
             <h1 className="font-bold text-3xl tracking-tight">
                 Editor de Conteúdo
             </h1>
+            {/* Removemos a exibição do slug, pois a página agora é estática */}
             <p className="text-gray-500">
-                Editando o rascunho: <code className="bg-gray-200 p-1 rounded text-sm">{slug}</code>
+                Área para criação de novos rascunhos ou edição padrão.
             </p>
         </header>
 
         {/* 2. Renderiza o CLIENT COMPONENT (EditableDiv) com o conteúdo carregado */}
-        {/* O Next.js sabe que 'EditableDiv' precisa ser hidratado no cliente (por causa do "use client") */}
         <EditableDiv initialContent={initialContent} />
 
       </div>
