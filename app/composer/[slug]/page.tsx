@@ -27,8 +27,6 @@ export default async function CoursePage({ params }: PageProps) {
     notFound();
   }
 
-  const MDX = page.data.body;
-
   return (
 <div>
       {/* ... outros elementos da página */}
