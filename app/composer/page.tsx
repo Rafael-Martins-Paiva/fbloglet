@@ -1,52 +1,62 @@
-import { courseDocs, courseMeta } from "@/.source";
-import { loader } from "fumadocs-core/source";
-import { createMDXSource } from "fumadocs-mdx";
-import EditableDiv from "@/components/test"
+import { Metadata } from 'next';
+// Certifique-se de que o caminho de importação está correto para o seu componente Client!
+// Use o nome do arquivo que você corrigiu, que no seu log de erro era 'test.tsx'.
+import EditableDiv from '@/components/test'; 
 
-interface CourseData {
-  title: string;
-  description: string;
-  date: string;
-  videoUrl?: string;
+// Simulação de busca de dados no servidor
+async function fetchInitialContent(slug: string): Promise<string> {
+  // Aqui você faria uma chamada a um banco de dados ou API
+  // para carregar o conteúdo atual do rascunho (draft) com base no 'slug'.
+  
+  // Exemplo de conteúdo mock:
+  const contentMap: Record<string, string> = {
+    'post-1': '<h2>Inicie a edição do Post 1</h2><p>Este é o conteúdo que foi carregado do servidor.</p>',
+    'new-draft': '<h2>Novo Rascunho</h2><p>Comece a escrever seu novo artigo aqui.</p>',
+    default: 'Clique para editar e comece a escrever!',
+  };
+
+  return contentMap[slug] || contentMap.default;
 }
 
-interface CoursePageType {
-  url: string;
-  data: CourseData;
-}
-
-const courseSource = loader({
-  baseUrl: "/posts",
-  source: createMDXSource(courseDocs, courseMeta),
-});
-
-
-export default async function CoursesPage({
-  searchParams,
+// ----------------------------------------------------
+// SERVER COMPONENT: ComposerPage
+// ----------------------------------------------------
+export default async function ComposerPage({
+  params,
 }: {
-  searchParams: Promise<{ page?: string }>;
+  params: { slug: string };
 }) {
-  const resolvedSearchParams = await searchParams;
-  const allPages = courseSource.getPages() as CoursePageType[];
-  const sortedCourses = allPages.sort((a, b) => {
-    const dateA = new Date(a.data.date).getTime();
-    const dateB = new Date(b.data.date).getTime();
-    return dateB - dateA;
-  });
-
-  // --- Pagination Logic ---
-  const pageSize = 10; // You can adjust this value
-  const currentPage = Number(resolvedSearchParams.page) || 1;
-
-  const startIndex = (currentPage - 1) * pageSize;
-  // --- End Pagination Logic ---
+  const { slug } = params;
+  
+  // 1. Carrega o conteúdo inicial (no Servidor)
+  const initialContent = await fetchInitialContent(slug);
 
   return (
-    <div>
-    {/* ... outros elementos da página */}
-    <EditableDiv 
-      initialContent="<h1>Título Editável</h1><p>Clique e edite. Use CTRL+B para <b>negrito</b>!</p>" 
-    />
-  </div>
+    <div className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-4xl mx-auto w-full">
+        
+        <header className="mb-8 pb-4 border-b">
+            <h1 className="font-bold text-3xl tracking-tight">
+                Editor de Conteúdo
+            </h1>
+            <p className="text-gray-500">
+                Editando o rascunho: <code className="bg-gray-200 p-1 rounded text-sm">{slug}</code>
+            </p>
+        </header>
+
+        {/* 2. Renderiza o CLIENT COMPONENT (EditableDiv) com o conteúdo carregado */}
+        {/* O Next.js sabe que 'EditableDiv' precisa ser hidratado no cliente (por causa do "use client") */}
+        <EditableDiv initialContent={initialContent} />
+
+      </div>
+    </div>
   );
 }
+
+// ----------------------------------------------------
+// METADADOS (Server Component Feature)
+// ----------------------------------------------------
+export const metadata: Metadata = {
+  title: 'Editor | Composer',
+  description: 'Área de edição de conteúdo do site.',
+};
