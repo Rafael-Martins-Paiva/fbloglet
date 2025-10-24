@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useRef, useCallback } from 'react';
 
 // Define a interface para as props, neste caso, o conteúdo inicial é opcional.
