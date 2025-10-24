@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-
+import EditableDiv from "@/components/test"
 import { TableOfContents } from "@/components/table-of-contents";
 import { MobileTableOfContents } from "@/components/mobile-toc";
 import { AuthorCard } from "@/components/author-card";
@@ -96,6 +96,12 @@ export default async function BlogPost({ params }: PageProps) {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-balance">
             {page.data.title}
           </h1>
+          <div>
+      {/* ... outros elementos da página */}
+      <EditableDiv 
+        initialContent="<h1>Título Editável</h1><p>Clique e edite. Use CTRL+B para <b>negrito</b>!</p>" 
+      />
+    </div>
 
           {page.data.description && (
             <p className="text-muted-foreground max-w-4xl md:text-lg md:text-balance">
