@@ -28,7 +28,7 @@ import {
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
   { href: "/", label: "Home", icon: HouseIcon },
-  { href: "/composer", label: "composer", icon: Newspaper },
+  { href: "/posts", label: "composer", icon: Newspaper },
   { href: "/courses", label: "Courses", icon: BookOpen },
 ]
 

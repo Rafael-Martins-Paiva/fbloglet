@@ -1,9 +1,7 @@
 import { courseDocs, courseMeta } from "@/.source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
-import { Suspense } from "react";
-import { BlogCard } from "@/components/blog-card"; // Reusing BlogCard for now
-import PaginationComponent462 from "@/components/comp-462";
+import EditableDiv from "@/components/test"
 
 interface CourseData {
   title: string;
@@ -18,17 +16,10 @@ interface CoursePageType {
 }
 
 const courseSource = loader({
-  baseUrl: "/courses",
+  baseUrl: "/posts",
   source: createMDXSource(courseDocs, courseMeta),
 });
 
-const formatDate = (date: Date): string => {
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-};
 
 export default async function CoursesPage({
   searchParams,
@@ -45,56 +36,17 @@ export default async function CoursesPage({
 
   // --- Pagination Logic ---
   const pageSize = 10; // You can adjust this value
-  const totalItems = sortedCourses.length;
-  const totalPages = Math.ceil(totalItems / pageSize);
   const currentPage = Number(resolvedSearchParams.page) || 1;
 
   const startIndex = (currentPage - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
-  const paginatedCourses = sortedCourses.slice(startIndex, endIndex);
   // --- End Pagination Logic ---
 
   return (
-    <div className="min-h-screen bg-background relative">
-      <div className="p-6 flex flex-col gap-6 min-h-[250px] justify-center relative z-10">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="flex flex-col gap-2">
-            <h1 className="font-medium text-4xl md:text-5xl tracking-tighter">
-              Our Courses
-            </h1>
-            <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
-              Learn new skills with our comprehensive video courses and articles.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto w-full px-6 lg:px-0">
-        <Suspense fallback={<div>Loading courses...</div>}>
-          <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative overflow-hidden`}
-          >
-            {paginatedCourses.map((course) => {
-              const date = new Date(course.data.date);
-              const formattedDate = formatDate(date);
-
-              return (
-                <BlogCard
-                  key={course.url}
-                  url={course.url}
-                  title={course.data.title}
-                  description={course.data.description}
-                  date={formattedDate}
-                  // thumbnail={course.data.thumbnail} // Courses don't have thumbnails in schema yet
-                />
-              );
-            })}
-          </div>
-        </Suspense>
-        <div className="flex justify-center w-full mt-8">
-          <PaginationComponent462 currentPage={currentPage} totalPages={totalPages} />
-        </div>
-      </div>
-    </div>
+    <div>
+    {/* ... outros elementos da página */}
+    <EditableDiv 
+      initialContent="<h1>Título Editável</h1><p>Clique e edite. Use CTRL+B para <b>negrito</b>!</p>" 
+    />
+  </div>
   );
 }
