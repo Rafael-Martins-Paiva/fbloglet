@@ -24,12 +24,11 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-//const teams = ["Acme Inc.", "coss.com", "Junon"]
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
   { href: "/", label: "Home", icon: HouseIcon },
-  { href: "#", label: "Hash", icon: HashIcon },
+  { href: "/composer", label: "composer", icon: HashIcon },
   { href: "/courses", label: "Courses", icon: BookOpen },
 ]
 
