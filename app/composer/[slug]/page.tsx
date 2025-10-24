@@ -1,11 +1,8 @@
 import { courseDocs, courseMeta } from "@/.source";
-import { DocsBody } from "fumadocs-ui/page";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+
 import EditableDiv from "@/components/test"
 
 interface PageProps {
