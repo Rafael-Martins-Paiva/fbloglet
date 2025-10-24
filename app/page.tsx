@@ -26,7 +26,7 @@ interface BlogPage {
 
 const blogSource = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: createMDXSource(blogDocs, blogMeta),
 });
 
 const formatDate = (date: Date): string => {

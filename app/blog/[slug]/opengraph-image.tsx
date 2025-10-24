@@ -14,7 +14,7 @@ export const contentType = "image/png";
 
 const blogSource = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: createMDXSource(blogDocs, blogMeta),
 });
 
 const getAssetData = async (authorAvatar?: string) => {

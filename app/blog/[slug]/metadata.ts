@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site";
 
 const blogSource = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: createMDXSource(blogDocs, blogMeta),
 });
 
 export async function generateMetadata({

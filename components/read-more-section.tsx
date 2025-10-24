@@ -2,12 +2,12 @@
 import { blogDocs, blogMeta } from "@/.source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
-import { BlogCard } from "./blog-card";
+import Link from "next/link";
 
 
 const blogSource = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: createMDXSource(blogDocs, blogMeta),
 });
 
 const formatDate = (date: Date): string => {
