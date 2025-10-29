@@ -160,7 +160,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
                   assetData?.logoBase64 ||
                   `${process.env.NEXT_PUBLIC_SITE_URL}/magicui-logo.png`
                 }
-                alt="MagicUI Logo"
+                alt="Logo"
                 width={80}
                 height={80}
                 style={styles.logo}

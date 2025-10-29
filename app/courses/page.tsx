@@ -2,7 +2,7 @@ import { courseDocs, courseMeta } from "@/.source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
 import { Suspense } from "react";
-import { BlogCard } from "@/components/blog-card"; // Reusing BlogCard for now
+import { BlogCard } from "@/components/blog-card"; 
 import PaginationComponent462 from "@/components/comp-462";
 
 interface CourseData {
@@ -10,6 +10,7 @@ interface CourseData {
   description: string;
   date: string;
   videoUrl?: string;
+  thumbnail?: string;
 }
 
 interface CoursePageType {
@@ -43,8 +44,8 @@ export default async function CoursesPage({
     return dateB - dateA;
   });
 
-  // --- Pagination Logic ---
-  const pageSize = 10; // You can adjust this value
+  // --- Pagination Logic --- //
+  const pageSize = 10; 
   const totalItems = sortedCourses.length;
   const totalPages = Math.ceil(totalItems / pageSize);
   const currentPage = Number(resolvedSearchParams.page) || 1;
@@ -52,7 +53,7 @@ export default async function CoursesPage({
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
   const paginatedCourses = sortedCourses.slice(startIndex, endIndex);
-  // --- End Pagination Logic ---
+const DEFAULT_THUMBNAIL_URL = "/thumbnails/nextjs-portfolio-templates.jpg";
 
   return (
     <div className="min-h-screen bg-background relative">
@@ -85,7 +86,7 @@ export default async function CoursesPage({
                   title={course.data.title}
                   description={course.data.description}
                   date={formattedDate}
-                  // thumbnail={course.data.thumbnail} // Courses don't have thumbnails in schema yet
+                  thumbnail={course.data.thumbnail ?? DEFAULT_THUMBNAIL_URL}
                 />
               );
             })}

@@ -16,6 +16,7 @@ import { AuthorCard } from "@/components/author-card";
 import { getAuthor, type AuthorKey } from "@/lib/authors";
 import { CopyHeader } from "@/components/copy-header";
 import ExamplePreviewCard from "@/components/preview-card";
+import YouTubeEmbed from "@/components/curse-player" 
 
 const createHeading = (level: number) => {
   const Heading = ({
@@ -50,6 +51,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     AccordionTrigger,
     Author,
     ExamplePreviewCard,
+    YouTubeEmbed,
     h1: createHeading(1),
     h2: createHeading(2),
     h3: createHeading(3),
